@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div *ngFor="let gif of getResults()" class="card">
+    <img class="gif" [src]="gif.images.downsized.url" alt="gif">
+    <p class="name"><span>Title:</span>  {{gif.title | titlecase}}</p>
+    <p class="resolution"><span>Source:</span><a [href]="gif.source" target=”_blank”> Link</a> </p>
+    <p class="size"><span>Size:</span>  {{gif.images.downsized.size | byteToMegabyte}}</p>
+  </div>
+
+  <div class="noResult" *ngIf="!getResults().length">
+    Don't Be Shy :)
+  </div>
+  
+</div>
+
+<div class="footer">
+  <p>By Brayan Israel Rivera Almaguer</p>
+  <p>Powered by GIPHY</p>
+</div>
